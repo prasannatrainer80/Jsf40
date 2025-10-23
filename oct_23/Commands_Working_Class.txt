@@ -1,0 +1,122 @@
+-- Display list of databases in MySQL instance
+
+show databases;
+
+-- Change to JFS40 Database 
+
+use JSF40;
+
+-- Display list of tables in current db 
+
+show tables;
+
+-- Display info about Dept table
+
+Desc Dept;
+
+-- Display info about Emp table 
+
+-- Display all records from Emp table 
+
+select * from Emp;
+
+-- Display Empno,Ename,Job,Sal,Comm,Mgr from Emp table
+
+select Empno, Ename, Job,Sal,Comm,Mgr
+from Emp;
+
+-- Display Empno,Job,Sal,Mgr,Hiredate,Deptno from Emp table 
+
+WHERE Clause : Used to display filtered records based on the condition. 
+
+-- Display INfo whose Empno is 7369;
+
+select * from Emp where Empno=7369;
+
+-- Display INfo whose Ename is 'SCOTT'
+
+select * from Emp where ENAME='SCOTT';
+
+-- Display INfo whose Ename is 'FORD'
+
+-- Display info whose Job is 'Manager'
+
+select * from Emp where job='MANAGER';
+
+-- Display Info whose sal g.e 3000
+
+select * from Emp where sal >= 3000;
+
+-- Display Info whose Ename is SCOTT or FORD or BLAKE or KING
+
+select * from Emp where Ename='SCOTT' OR Ename='FORD' or ENAME='BLAKE'
+OR Ename='KING';
+
+-- Display info whose Job is 'ANALYST' and sal g.e. 3000
+
+select * from Emp where Job='ANALYST' AND Sal >= 3000;
+
+-- IN Clause : Used to check for multiple values of particular column
+
+select * from Emp where ENAME IN('FORD','SCOTT','JAMES','KING');
+
+select * from Emp where ENAME NOT IN('FORD','SCOTT','JAMES','KING');
+
+Between...AND : Used to display values from start to end range. 
+
+
+select * from Emp where sal between 1000 and 3000;
+
+select * from Emp where sal NOT between 1000 and 3000;
+
+LIKE Operator : It acts as wildcard (%,_) 
+
+-- Display all records whose name starts with 'S' 
+
+select * from Emp where Ename like 'S%';
+
+-- Display all records whose name ends with 'S'
+
+select * from Emp where Ename LIKE '%S';
+
+-- Display info whose name starts with 'J' and 5th char is 'S'
+
+select * from Emp where Ename LIKE 'J___S';
+
+-- Order By : Used to display records based on specific field(s) in ascending or descending order
+
+select * from emp order by ename;
+
+select * from Emp order by sal desc;
+
+
+select * from Emp order by job,ename;
+
+select * from Emp order by job,ename DESC;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
