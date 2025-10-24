@@ -1,0 +1,69 @@
+--> select empno,ename,job,sal,mgr from Emp;
+
+select distinct job from Emp;
+
+For above query define headnames at runtime as
+
+for CLERK -> NagaSai
+for SALESMAN -> Tirupathi
+for MANAGER -> Mansi
+for ANALYST -> Dharani
+For President -> No Reporting
+
+select empno,ename,job,sal,mgr,
+Case Job
+   WHEN 'CLERK' THEN 'NagaSai'
+   WHEN 'SALESMAN' THEN 'Tirupathi'
+   WHEN 'MANAGER' THEN 'Mansi'
+   WHEN 'ANALYST' THEN 'Dharani'
+   WHEN 'PRESIDENT' THEN 'No Reporting'
+End 'Reporting'
+ from Emp;
+
+For above query define HeadOffice at runtime as
+
+for CLERK -> Delhi
+for SALESMAN -> Chennai
+for MANAGER -> Hyderabad
+for ANALYST -> Bangalore
+For President -> Any City 
+
+
+select empno,ename,job,sal,mgr,
+Case Job
+   WHEN 'CLERK' THEN 'Delhi'
+   WHEN 'SALESMAN' THEN 'Chennai'
+   WHEN 'MANAGER' THEN 'Hyderabad'
+   WHEN 'ANALYST' THEN 'Bangalore'
+   WHEN 'PRESIDENT' THEN 'Any City'
+End 'HeadOffice'
+ from Emp;
+
+select empno,ename,job,sal,comm,
+case 
+   WHEN COMM IS NULL THEN 0 ELSE COMM
+end 'Comm'
+ from EMp;
+
+
+select empno,ename,job,sal,comm,
+case 
+   WHEN COMM IS NULL THEN 0 ELSE COMM
+end 'Comm',
+case 
+   WHEN COMM IS NULL THEN SAL ELSE SAL+COMM
+end 'TakeHome'
+ from EMp;
+
+
+
+
+
+
+
+
+
+
+
+
+
