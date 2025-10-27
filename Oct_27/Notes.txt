@@ -74,6 +74,138 @@ having count(*) > 1
 order by job;
 
 
+-- Display all records from Customer table
+
+-- Display  CUS_ID, CUS_NAME, CUS_PHN_NO,CUS_USERNAME  from customer
+table
+
+-- Display Code for login password
+
+select count(*) 'cnt' from customer
+where cus_username='prassucp' and cus_password='hexaware@';
+
+-- Display all records from wallet table 
+
+select * from wallet;
+
+-- Display cust_id wise how many wallets are there (count) 
+
+select cus_id,count(*)
+from wallet group by cus_id;
+
+-- Display all customer records whose name > 8 chars
+
+select * from customer
+where length(cus_name) > 8;
+
+-- Display all records whose password contains '@' 
+
+select * from customer
+where instr(cus_name,'@')!=0;
+
+
+-- Display customer phone number whose number < 10 chars 
+
+-- Display all records from vendor table
+
+-- Write the login query for vendor 
+
+-- display info whose name contains 'aarifa'
+
+-- Display info whose password contains '123'
+
+-- Display all info from wallet who have CREDIT_CARD as wallet
+
+-- Display amount from wallet table who have wallet as PAYTM
+
+-- How to create database
+
+create database database_name;
+
+create database JSF40New;
+
+-- HOw to drop database 
+
+Drop Database JSF40New;
+
+---------------------------------
+
+Correct steps to create and move to database are
+
+drop database if exists JSF40New;
+
+Create database JSF40New;
+
+use JSF40New;
+
+DataTypes :
+
+	int
+	float
+	numberic(9,2) 
+	char
+	varchar
+	date
+	time
+	datetime
+	enum
+
+
+Various commands in SQL
+
+DDL ( Data Definition Language ) 
+
+	CREATE
+
+	ALTER
+
+	DROP
+
+	TRUNCATE 
+
+CREATE TABLE TABLE_NAME 
+
+DML 
+
+_____________________________________________________________________
+
+Employee(Empno,name,Gender,Dept,Desig,Basic) 
+	Empno => int
+	Name => varchar(30)
+ 	Gender => Enum(MALE/FEMALE)
+	Dept => varchar(30)
+	Desig => varchar(30)
+	Basic => numeric(9,2)
+
+Drop database if exists JSF40New;
+Create Database JSF40New;
+USE JSF40NEW;
+
+Create Table Employee
+(
+    Empno INT,
+    Name varchar(30),
+    Gender ENUM('MALE','FEMALE'),
+    Dept varchar(30),
+    Desig varchar(30),
+    Basic numeric(9,2)	
+);
+
+___________________________________________________________________
+
+Drop database if exists JSF40New;
+Create Database JSF40New;
+USE JSF40NEW;
+
+Create Table Employee
+(
+    Empno INT primary key,
+    Name varchar(30) NOT NULL,
+    Gender ENUM('MALE','FEMALE'),
+    Dept varchar(30) check(dept in('Java','Sql','Python')),
+    Desig varchar(30) NOT NULL,
+    Basic numeric(9,2) check (basic between 10000 and 80000)
+);
 
 
 
