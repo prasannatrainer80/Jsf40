@@ -91,10 +91,6 @@ select length('misissipi')-length(replace('misissipi','i',''));
 
 select 'Pradeep kumar yerram';
 
--- Number Functions 
-
--- Functions 
-
 -- number functions
 
 -- abs() : Returns absolute value 
@@ -125,18 +121,24 @@ select round(8776.8677,-2);
 select round(8776.8677,-3);
 
 -- Sql Date Functions
+
 -- curdate() : used to display current date
 select curDate();
+
 -- curTime() : Used to display current time
 select curTime();
+
+
 select dayofWeek(curDate());
 
 select quarter(curdate());
+
 -- last_day() : Displays the last day of date of month specified
 
 select last_day(curdate());
 
 -- adddate() : Used to add no.of days 
+
 select adddate(curdate(),INTERVAL 5 day); 
 select adddate(curdate(), INTERVAL 3 MONTH);
 select adddate(curdate(), INTERVAL 4 YEAR);
@@ -146,6 +148,8 @@ select year(curdate());
 select day(curdate());
 
 select month(curdate());
+
+use dads;
 
 select empno,ename,job,sal,hiredate,year(hiredate) from emp;
 
@@ -178,6 +182,52 @@ select min(sal) from Emp;
 select count(*) from Emp;
 
 select count(*) from Agent;
+
+group by : allows you to generate summary reports on the field specified. 
+
+select field(s), aggr_function from table_name
+group by field 
+
+select job,sum(sal) from Emp
+group by job;
+
+select job,avg(sal) from Emp
+group by job;
+
+-- Display total no.of emplyoees working in each dept(job) 
+
+select job,count(*) from Emp
+group by job;
+
+--Display max salary from emp table group by job
+
+select job,max(sal) from Emp
+group by job;
+
+-- Display min salary from Emp table group by job
+
+select job,min(sal) from Emp
+group by job;
+
+select job,sum(sal) 'total sal',
+avg(sal) 'avg sal',
+max(sal) 'max sal',
+min(sal) 'min sal',
+count(*) 'total recs' from Emp
+group by job;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
