@@ -14,6 +14,7 @@ select * from emp where year(hiredate)=1981;
 
 select * from emp where year(hiredate) between 1981 and 1985;
 
+
 -- Display who are joined on 1980-12-17 (use hiredate column) 
 
 select * from Emp where hiredate='1980-12-17';
@@ -88,6 +89,74 @@ For Dotnet Bonus is 8000
 
 -- Display AgentId,firsname,lastname,city,state,country w.r.t. Sorted order by
 country/city/firstname asc order
+
+-- For Emp table Generate Column as 'IncrBasic' as based on job field
+for CLERK add sal by 1000
+for SALESMAN add sal by 1500
+for ANALYST add sal by 2000
+for MANAGER add sal by 3000
+for PRESIDENT same sal 
+
+____________________________________________________________________
+
+-- String functions 
+
+Instr() : Displays first occurrence of given char. 
+
+'praveen' 
+
+select instr('praveen','e');
+
+select ename,instr(ename,'A') from EMp;
+
+select 
+case when instr('helloworld','@')=0 
+then 'Invalid Email' else 
+'Valid Email' end 'emailvalid' 
+
+-- Display all ename from Emp table whose ename does not contain char 'A'
+
+
+select ename from emp where instr(ename,'A')=0;
+
+-- Display the last occurrence of given char in a string. 
+
+'praveen'  
+
+Assume, in name 'keerthi' char 'e' exists 2 times last time at 3rd position
+that I need to print. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
