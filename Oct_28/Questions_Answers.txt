@@ -1,0 +1,141 @@
+use jsf40;
+
+-- Emp, Agent, Employ 
+
+-- Display All records from Emp table 
+
+-- Display empno,ename,job,sal,hiredate,comm from Emp table 
+
+-- Display all emp details who joined in 1981 year (use hiredate column)
+
+select * from emp where year(hiredate)=1981;
+
+-- Display all emp details who joined from 1981 to 1985
+
+select * from emp where year(hiredate) between 1981 and 1985;
+
+-- Display who are joined on 1980-12-17 (use hiredate column) 
+
+select * from Emp where hiredate='1980-12-17';
+
+-- Display emp details who hired from '1980-01-01' to '1985-12-31';
+
+select * from Emp where hiredate between
+'1980-01-01' AND '1985-12-31';
+
+-- Display date where last hiring happened (use hiredate column) 
+
+select max(hiredate) from emp;
+
+-- Display emp details who joined on feb month (hiredate) 
+
+select * from Emp where month(hiredate)=2;
+
+-- Display Emp details whose name contains less than 6 chars 
+
+-- Display Emp Details whose job is 'CLERK'
+
+-- Display total no.of employess whose job is 'CLERK'
+
+select count(*) from Emp where job='CLERK';
+
+-- Display All emp records whose comm value NULL
+
+select * from Emp where comm is null;
+
+-- Display all records from Agent table
+
+
+-- Display AgentId, FIrstName,lastname,city,Dob,MaritalStatus from Agent table
+
+-- Display all records of agent who are from India (use COuntry attribute) 
+
+-- Display agent dob who is oldest in the table records (senior person details based on dob) 
+
+select min(dob) from Agent;
+
+-- Display agent details who born from 1983 to 1987
+
+-- Display total agents who are born from 1983 to 1987 
+
+-- For Agent Table, Print AgentId,FIrstName,lastName,city,
+Gender
+ensure Generate Reporting as For Male Agents 'Floor 1'
+For Female Agents 'Floor 3'
+
+select agentid,firstname,lastname,city,gender,
+case gender
+   WHEN 'MALE' THEN 'Floor 1'
+   WHEN 'FEMALE' THEN 'Floor 3'
+end 'Reporting'
+from Agent;
+
+-- For Agent table, Based on Country wise, IF USA Reporting is 'Detroit'
+IF India Reporting is 'Bangalore'
+
+-- Employ table, Display all dept details by eliminating duplicates 
+
+select distinct dept from Employ;
+
+
+-- For Employ table, write a query as
+based on Dept field Generate Reporting as FOR Java 'Kishore'
+For Dotnet 'Anand'
+
+-- For Employ table, Generate Column as Bonus, for Java Bonus is 10000, 
+For Dotnet Bonus is 8000
+
+
+-- Display AgentId,firsname,lastname,city,state,country w.r.t. Sorted order by
+country/city/firstname asc order
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
