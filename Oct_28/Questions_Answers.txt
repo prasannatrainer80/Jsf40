@@ -127,6 +127,22 @@ Assume, in name 'keerthi' char 'e' exists 2 times last time at 3rd position
 that I need to print. 
 
 
+select reverse('praveen')
+
+select Instr(reverse('praveen') ,'e'); 
+
+select length('praveen')-Instr(reverse('praveen') ,'e')+1;
+
+select length('dharani')-Instr(reverse('dharani') ,'a')+1;
+
+
+
+
+
+
+
+
+
 
 
 
