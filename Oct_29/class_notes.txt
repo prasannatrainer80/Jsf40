@@ -212,6 +212,9 @@ Create table LeaveDetails
    ManagerComments varchar(30)
 );
 
+Insert into LeaveDetails(empno,leavestartdate,leaveenddate,leaveReason)
+values(1,'2025-10-10','2025-10-14','Going Home'),    
+    (1,'2025-12-12','2025-12-20','Going Trip');
 
 
 
