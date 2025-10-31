@@ -1,0 +1,35 @@
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    CONSTRAINT chk_name_alpha CHECK (name REGEXP '^[A-Za-z]+$')
+);
+
+ALTER TABLE users
+ADD CONSTRAINT chk_name_alpha CHECK (name REGEXP '^[A-Za-z]+$');
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    mobile_number VARCHAR(10) NOT NULL,
+    CONSTRAINT chk_mobile_number CHECK (LENGTH(mobile_number) = 10 AND mobile_number REGEXP '^[0-9]+$')
+);
+
+
+____________________________________________________________
+
+
+
+Display all records from Employee table
+
+Display how many employees are working in each dept 
+
+Display how much salary paying to each dept 
+
+Display Max. Salary
+
+Display Emp Names whose name starts with 'S'
+
+Display Emp names whose name ends with 'A'
+
+Display all emp names whose name contains more than 
+6 chars 
+
