@@ -1,0 +1,270 @@
+use JSF40;
+
+drop table if exists test;
+
+create table Test
+(
+    AccountNo INT Primary Key
+);
+
+select case when max(AccountNo) IS NULL THEN 1
+else max(AccountNo)+1 end accno from test;
+
+Insert into Test values(1),(2),(3);
+
+Create Table Users
+(  
+   UserName varchar(30) Primary Key, passcode varchar(30) NOT NULL
+);
+
+Insert into Users(username,passcode) values('Purushottam','Codegnan'),
+('Sahithi','Sahithi123');
+
+select count(*) from Users where username='PUrushottam' AND PassCode='Codegnan';
+
+
+
+Update : Used to update one or more records for the given table. 
+
+syntax : 
+
+update table_name
+set field1=value,field2=value ... {where condition}
+
+use jsf40;
+
+drop table if exists student;
+
+create table student
+(
+   Sno INT Primary Key,
+   Name varchar(30) NOT NULL,
+   Sub1 INT, 
+   Sub2 INT,
+   Sub3 INT,
+   Total INT,
+   Aveg numeric(9,2)
+);
+
+Insert into Student(sno,Name,Sub1,Sub2,Sub3) values(1,'Vinathi',87,56,88),
+(2,'Manoj',87,65,77),
+(3,'Pavan',88,87,53),
+(4,'Prasanna',87,66,77);
+
+Update Student 
+set Total = Sub1+Sub2+Sub3, Aveg = (Sub1+Sub2+Sub3)/3;
+
+select * from student;
+
+
+drop table if exists EmployPayroll;
+
+create table EmployPayRoll
+(
+    EmpId INT,
+    Name varchar(30),
+    Salary numeric(9,2),
+    Hra Numeric(9,2),
+    Da Numeric(9,2),
+    Ta Numeric(9,2),
+    Tax Numeric(9,2),
+    Pf Numeric(9,2),
+    Gross Numeric(9,2),
+    NetPay numeric(9,2)
+);
+
+
+Insert into EmployPayroll(EmpId,Name,Salary) 
+values(1,'Harshitha',77723),(2,'Tirupathi',77234),
+(3,'Aakash',77233);
+
+Update EmployPayroll set Hra=Salary*0.03,Da=Salary*0.01,Ta=Salary*0.012;
+
+Update EmployPayroll set Tax=Salary * 0.12, Pf = Salary * 0.11;
+
+Update EmployPayroll set Gross = Salary + HRa + Da + Ta;
+
+Update EmployPayroll Set NetPay = Gross - Tax - PF;
+
+
+drop table if exists AgentNew;
+
+Create Table AgentNew
+(
+  AgentID INT Primary Key AUTO_INCREMENT,
+  FirstName varchar(30),
+  LastName varchar(30),
+  FullName varchar(80),
+  City varchar(30),
+  State varchar(10)
+);
+
+Insert into AgentNew(FirstName,LastName,City,State) 
+values('Raj','Kishore','Chennai','TN'),
+('Mahesh','Manne','Bangalore','KA'),
+('Archana','Arora','Delhi','UP');
+
+Update AgentNew set FullName = concat(FirstName,' ',lastName);
+
+select * from AgentNew;
+
+select * from Employ;
+
+For employ table
+
+-- Increase Basic by 5000 for name is 'Suhaas'
+
+Update Employ 
+set Basic=Basic+5000 WHERE Name='Suhaas';
+
+-- For All 'Java' Dept employees increase basic by 1000;
+
+-- Create a table from another_table
+syntax : 
+
+create table table_name 
+as
+   select command
+
+Example :
+
+create table EmployDup
+as 
+select * from Employ;
+
+truncate table employdup;
+
+-- How to copy records from one table to another table
+
+insert into EmployDup(empno,name,dept,desig,basic)
+select empno,name,dept,desig,basic from Employ;
+
+
+-- word 'misissipi' count no.of i's 
+
+select replace('misissipi','i','');
+
+select length('misissipi')-length(replace('misissipi','i',''));
+
+
+-- Display all employee names and no.of words in their names
+employ table
+
+select name,replace(name, ' ','')
+from Employ;
+
+
+select name,length(name)-length(replace(name, ' ','')) 
+from Employ;
+
+-- Display all employee names who have 1 part and 2 part names 
+
+select name,length(name)-length(replace(name, ' ','')) spaces
+from Employ;
+
+select Ed.Name,Ed.Spaces
+from
+(select name,length(name)-length(replace(name, ' ','')) spaces
+from Employ) Ed
+WHERE Ed.Spaces=0 OR Ed.Spaces=1;
+
+select E1.Empno,E1.Ename,E1.Job,D1.Deptno,D1.Dname,D1.Loc 
+from
+(select empno,ename,job,sal from Emp)E1,
+(select deptno,dname,loc from Dept)D1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
