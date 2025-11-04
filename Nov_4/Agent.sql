@@ -1,4 +1,4 @@
-use PFS37;
+use JSF40;
 
 drop table if exists agentpolicy;
 
