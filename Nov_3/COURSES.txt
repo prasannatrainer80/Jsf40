@@ -1,0 +1,28 @@
+COURSES 
+----------
+
+CCODE	VARCHAR(5)	-- Primary Key
+NAME	VARCHAR(30)	 
+DURATION numeric(6,2)
+FEE	Numeric(9,2)
+PREREQUISITE	VARCHAR(100) --	Prerequisite knowledge to do the course.
+
+FACULTY
+_______
+
+FACCODE	VARCHAR(5)	Faculty code. This is the primary key of the table.
+NAME	VARCHAR(30)	Name of the faculty.
+QUAL	VARCHAR(30)	Qualification of the faculty member.
+EXP	VARCHAR(100)	Experience of the faculty member.
+
+
+Course_Faculty
+________________
+
+FACCODE	VARCHAR2(5)	Faculty code (Foreign Key). 
+CCODE	VARCHAR2(5)	Course the faculty can handle (Foreign Key).
+GRADE	CHAR(1)	Rating of faculty’s ability to handle this particular code.
+A – Very good, B- Good,
+C- Average.
+
+Add composite primary key 

@@ -1,0 +1,36 @@
+use PSF37;
+
+create table Test
+(
+    AccountNO INT Primary Key
+);
+
+-- Write a select command to generate accountNO automatically 
+
+select case when max(accountNo) IS NULL THEN 1 else 
+max(AccountNo)+1 end accno from Test;
+
+
+Insert into Test values(1),(2),(3);
+
+Create Table Users
+(  
+   UserName varchar(30) Primary Key, passcode varchar(30) NOT NULL
+);
+
+Insert into Users(username,passcode) values('Bhargavi','Codegnan'),
+('Bharadwaj','Bharadwaj123');
+
+select count(*) cnt from Users where UserName='Bhargavi' AND 
+Passcode='Codegnan';
+
+
+
+
+
+
+
+
+
+
+

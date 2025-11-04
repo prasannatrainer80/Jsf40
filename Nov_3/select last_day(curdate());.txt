@@ -1,0 +1,5 @@
+select last_day(curdate());
+
+select addDate(
+last_day(curdate())
+,INTERVAL 12-MONTH(last_day(curdate())) MONTH);

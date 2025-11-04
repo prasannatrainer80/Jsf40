@@ -1,0 +1,55 @@
+use pfs37;
+
+For employ table
+
+-- Increase Basic by 5000 for name is 'Suhaas'
+
+Update Employ 
+set Basic=Basic+5000 WHERE Name='Suhaas';
+
+-- For All 'Java' Dept employees increase basic by 1000;
+
+update Employ
+set Basic = Basic + 1000 where dept='Java';
+
+-- Update basic as 90000 for empno 5
+Update Employ set basic=90000 where empno = 5;
+
+-- update Name as 'Karima Saleem' for Name 'Kareem'
+Update Employ set name = 'Karima Saleem' where name='Kareem';
+
+-- Update Dept as 'QA' for Name 'Karthik'
+Update Employ set Dept='QA' WHERE Name='Karthik';
+
+-- Update Desig as 'Manager' for Empno 3 
+
+Update Employ set Desig='Manager' WHERE Empno=3;
+
+
+use pfs37;
+
+drop table if exists test;
+
+create table Test
+(
+   Id int Primary key Auto_Increment,
+   Mstat INT Check(MStat in (0,1)),
+   description varchar(30)
+);
+
+Insert into Test(Mstat) values(0),(1),(0),(0),(1),(1);
+
+
+Update Test set description = case mstat
+when 0 then 'Unmarried' when 1 then 'married' end;
+
+
+
+
+
+
+
+
+
+
+

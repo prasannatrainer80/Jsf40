@@ -78,6 +78,7 @@ Insert into EmployPayroll(EmpId,Name,Salary)
 values(1,'Harshitha',77723),(2,'Tirupathi',77234),
 (3,'Aakash',77233);
 
+
 Update EmployPayroll set Hra=Salary*0.03,Da=Salary*0.01,Ta=Salary*0.012;
 
 Update EmployPayroll set Tax=Salary * 0.12, Pf = Salary * 0.11;

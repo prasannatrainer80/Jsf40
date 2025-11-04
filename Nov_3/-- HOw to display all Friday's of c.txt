@@ -1,0 +1,38 @@
+-- HOw to display all Friday's of current month.
+
+select last_day(curdate());
+
+select addDate(last_day(curdate()) , INTERVAL 1 DAY);
+
+select addDate(addDate(last_day(curdate()) , INTERVAL 1 DAY), INTERVAL -1 MONTH);
+
+select dayofweek(
+addDate(addDate(last_day(curdate()) , INTERVAL 1 DAY), INTERVAL -1 MONTH)
+);
+
+------------------------------------------------------------------
+
+select case 
+
+when dayofweek(
+addDate(addDate(last_day(curdate()) , INTERVAL 1 DAY), INTERVAL -1 MONTH)
+) = 7 THEN 
+
+ADDDate(
+addDate(addDate(last_day(curdate()) , INTERVAL 1 DAY), INTERVAL -1 MONTH)
+, INTERVAL 6 DAY)
+ELSE 
+
+ADDDATE(
+addDate(addDate(last_day(curdate()) , INTERVAL 1 DAY), INTERVAL -1 MONTH),
+
+INTERVAL 6- 
+dayofweek(
+addDate(addDate(last_day(curdate()) , INTERVAL 1 DAY), INTERVAL -1 MONTH)
+)
+DAY)
+END 'First Friday';
+
+
+
+
