@@ -1,0 +1,40 @@
+use JSF40;
+
+start transaction;
+delete from Agent where AgentId=13;
+
+select * from Agent;
+
+rollback; -- Allows you to cancel the transaction. 
+
+start transaction;
+delete from agent where agentid=15;
+
+commit;
+
+select * from Agent;
+
+select Dept.Deptno,Dname,Empno,Ename,job,sal
+from Dept INNER JOIN Emp ON Dept.Deptno=Emp.Deptno;
+
+select D.Deptno,Dname,Empno,Ename,Job,Sal
+from Dept D INNER JOIN Emp E ON D.Deptno=E.Deptno;
+
+select A.AgentId,FirstName,LastName,City,SSN,
+P.PolicyID, AppNumber,ModalPremium,AnnualPremium
+from Agent A INNER JOIN AgentPolicy AP
+ON A.AgentID= AP.AgentID 
+INNER JOIN Policy P ON P.PolicyID = Ap.PolicyID;
+
+select A.AgentId,FirstName,LastName,City,SSN,
+P.PolicyID,AppNumber,ModalPremium,AnnualPremium
+from Agent A INNER JOIN AgentPolicy AP
+ON A.AgentId=AP.AgentID 
+INNER JOIN Policy P ON P.PolicyID = AP.PolicyID;
+
+
+
+
+
+
+

@@ -1,0 +1,118 @@
+Subqueries : Sometimes it is not possible to extract data from single select statement. For this we need the help of subqueries.  A subquery is a query that which is having another query inside, the query which is inside known as inner query, the query which is outside known as outer query.  Everytime, the result of inner query will be send as input to the outer query. 
+
+-- Display max salary 
+
+select max(sal) from Emp;
+
+-- Display name of employee who is getting max salary 
+
+select ename from Emp where sal=Max(sal);
+
+select ename from Emp where sal = (select max(sal) from Emp);
+
+-- Display name of employee whose is getting min salary 
+
+-- Display 2nd max salary 
+
+select max(sal) from Emp where sal < (select max(sal) from Emp);
+
+-- Display name of employee who is getting 2nd max salary 
+
+select ename from Emp where sal = 
+(
+select max(sal) from Emp where sal < (select max(sal) from Emp)
+);
+
+-- There are various types of subqueries as 
+
+-> Single Row Subquery : A subquery that which returns only one value to the outer query known as single row.
+
+-> Multi Row Subquery : A subquery that which returns more than one value to the outer query known as multi row. 
+
+For multi rows subqueries, we need to use ALL or ANY Operator. 
+
+ALL -> Acts as AND operator
+
+ANY -> Acts as OR Operator 
+
+example : Empno <> ALL(10,20,30) means 
+
+Empno <> 10 AND Empno <> 20 AND Empno <> 30
+
+  empno = ANY(10,20,30) means
+
+empno = 10 OR empno = 20 OR empno = 30;
+
+-- Display Idle Agents (AgentId exists in Agent Table but not in AgentPolicy table) 
+
+select * from Agent where AgentID <> (select AgentID from AgentPolicy);
+
+select * from Agent where AgentID <> ALL(select AgentID from AgentPolicy);
+
+-- Display Idle Policies (PolicyID exists in Policy Table but not in AgentPolicy Table) 
+
+select * from Policy where policyId <> ALL(select policyId from AgentPolicy);
+
+-- Display Matching records from Agent and AgentPolicy Tables (AgentId exists in both Agent and AgentPolicy Tables) 
+
+select * from Agent where AgentId = ANY(select AgentId from AgentPolicy);
+
+-- Display matching policy records from Agent and AgentPolicy tables (PolicyId exists in both Policy and AgentPolicy tables) 
+
+select * from Policy where policyId = ANY(select PolicyId from AgentPolicy);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
