@@ -1,0 +1,34 @@
+-- Apply Inner join for Customer and ORders table
+
+-- Apply Inner Join for Menu and Orders table
+
+-- Apply Inner Join for Vendor and Orders table 
+
+
+-- DIsplay customers who are not placed any orders
+
+-- Display Menu details for which ordered not happened
+
+-- Display Vendor details who did not get any orders
+
+use jsf40;
+
+select D.Deptno,Empno,Dname,Ename,sal,comm,
+ROW_NUMBER() OVER(Partition By Dname Order By Dname) Rno
+from Dept D INNER JOIN Emp E ON D.Deptno=E.Deptno;
+
+
+select Ed.Deptno,Ed.Empno,Ed.Dname,Ed.Ename,Ed.Sal,Ed.Comm,Ed.Rno
+from 
+(select D.Deptno,Empno,Dname,Ename,sal,comm,
+ROW_NUMBER() OVER(Partition By Dname Order By Dname) Rno
+from Dept D INNER JOIN Emp E ON D.Deptno=E.Deptno) ED;
+
+
+select Ed.Deptno,Ed.Empno,case when ed.rno = 1 then Ed.Dname else '"' end 'Dept',Ed.Ename,Ed.Sal,Ed.Comm,Ed.Rno
+from 
+(select D.Deptno,Empno,Dname,Ename,sal,comm,
+ROW_NUMBER() OVER(Partition By Dname Order By Dname) Rno
+from Dept D INNER JOIN Emp E ON D.Deptno=E.Deptno) ED;
+
+
