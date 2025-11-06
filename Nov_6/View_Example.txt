@@ -13,6 +13,30 @@ as
 
 Example : 
 
+use jsf40;
+
 Create view vwEmployData
 as
   Select empno,ename,job,sal from Emp;
+
+select * from vwEmployData;
+
+
+-- How to make view with multiple tables 
+
+create view vwDeptData
+AS
+select D.Deptno,Dname,Empno,Ename,Job,Sal
+from Dept D INNER JOIN EMP E on D.Deptno = E.Deptno;
+
+select * from vwDeptData;
+
+create view vwAgentData
+as
+   select A.AgentId,firstName,LastName,City,SSN,P.PolicyID,
+	AppNumber,ModalPremium,AnnualPremium
+	from Agent A INNER JOIN AgentPolicy AP ON
+	A.AgentId = AP.AgentID INNER JOIN Policy P ON
+	P.PolicyID = AP.PolicyID
+
+select * from vwAgentData;
