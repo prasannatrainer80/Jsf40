@@ -62,6 +62,18 @@ select * from Agent where AgentId = ANY(select AgentId from AgentPolicy);
 select * from Policy where policyId = ANY(select PolicyId from AgentPolicy);
 
 
+From Employee and LEaveDetails table, show the 
+employee details who are not taken leave 
+
+select * from Employee where empno <> ALL(
+select empno from LeaveDetails);
+
+
+Display employee details who took the leave 
+
+select * from Employee where empno = ANY(
+select empno from LeaveDetails);
+
 
 
 
