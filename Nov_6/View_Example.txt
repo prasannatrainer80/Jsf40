@@ -40,3 +40,13 @@ as
 	P.PolicyID = AP.PolicyID
 
 select * from vwAgentData;
+
+create view vwTask
+AS
+select Ed.Deptno,Ed.Empno,case when ed.rno = 1 then Ed.Dname else '"' end 'Dept',Ed.Ename,Ed.Sal,Ed.Comm,Ed.Rno
+from 
+(select D.Deptno,Empno,Dname,Ename,sal,comm,
+ROW_NUMBER() OVER(Partition By Dname Order By Dname) Rno
+from Dept D INNER JOIN Emp E ON D.Deptno=E.Deptno) ED;
+
+select * from vwTask;
