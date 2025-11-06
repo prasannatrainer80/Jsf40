@@ -1,0 +1,18 @@
+Views 
+
+Can we store any select command data in any database object ???
+
+A view is a virtual table, which allows you to store the select command as an object,  A view will not contains any data of its own, only the select command will be stored in that. 
+
+syntax : 
+
+create view view_name
+as
+   select_command
+
+
+Example : 
+
+Create view vwEmployData
+as
+  Select empno,ename,job,sal from Emp;
