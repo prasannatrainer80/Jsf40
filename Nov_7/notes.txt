@@ -111,7 +111,15 @@ select empno,ename,job,sal from emp where job in ('CLERK','MANAGER')
 UNION ALL
 select empno,ename,job,sal from Emp where JOB IN('CLERK','SALESMAN');
 
+EXCEPT : This operator acts as MINUS operator, allows you to show records which is there in first select command and not there in second select command.
 
+select empno from employee
+Except
+select empno from leaveDetails;
+
+select empno,ename,job,sal from emp where job in('CLERK','SALESMAN')
+EXCEPT
+select empno,ename,job,sal from emp where job in('CLERK','MANAGER');
 
 
 
