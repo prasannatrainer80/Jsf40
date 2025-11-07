@@ -1,0 +1,149 @@
+-- Apply INNER Join between Customer and Wallet tables
+
+select C.Cus_ID,Cus_name,Cus_Phn_No,Cus_UserName,Wal_id,Wal_Source,
+Wal_Amount
+from Customer C INNER JOIN Wallet W ON C.Cus_ID = W.Cus_ID;
+
+-- Apply INNER Join Between Customer and Orders tables
+
+select C.Cus_ID,Cus_name,Cus_UserName,Wal_Source,Men_Id,Ord_BillAmount
+from Customer C INNER JOIN Orders O ON C.Cus_ID = O.Cus_Id;
+
+desc Menu;
+
+Desc Orders;
+
+Desc Customer;
+
+-- Apply Inner join for above tables
+
+select C.Cus_ID,Cus_name,Cus_UserName,Wal_Source,M.Men_Id,Ord_BillAmount,
+MEN_ITEM,MEN_PRICE
+from Customer C INNER JOIN Orders O ON C.Cus_ID = O.Cus_Id
+INNER JOIN Menu M ON M.Men_ID = O.Men_Id;
+
+-- Apply LEFT join for above tables
+
+select C.Cus_ID,Cus_name,Cus_UserName,Wal_Source,M.Men_Id,Ord_BillAmount,
+MEN_ITEM,MEN_PRICE
+from Customer C LEFT JOIN Orders O ON C.Cus_ID = O.Cus_Id
+LEFT JOIN Menu M ON M.Men_ID = O.Men_Id;
+
+-- Apply RIGHT Join for above tables
+
+select C.Cus_ID,Cus_name,Cus_UserName,Wal_Source,M.Men_Id,Ord_BillAmount,
+MEN_ITEM,MEN_PRICE
+from Customer C RIGHT JOIN Orders O ON C.Cus_ID = O.Cus_Id
+RIGHT JOIN Menu M ON M.Men_ID = O.Men_Id;
+
+-- Apply Join for Vendor and Orders table
+
+_______________________________________________________________
+
+-- Display max. menu price from menu table
+
+select max(men_price) from Menu;
+
+-- Display Item Name for which menu price is max. 
+
+select men_item from Menu where men_price = (select 
+max(men_price) from Menu);
+
+
+-- Display max. menu price 
+
+select max(men_price) from menu;
+
+-- Display Item name for which price is max. 
+
+select * from menu where men_price = (select max(men_Price) from menu);
+
+-- Display 2nd max menu price 
+
+select max(men_price) from Menu where men_price < 
+(select max(men_price) from Menu);
+
+-- Display Item Name for the 2nd max menu price
+
+select * from Menu where men_price = 
+(
+select max(men_price) from Menu where men_price < 
+(select max(men_price) from Menu));
+
+-- Display Idle Menu Items (means which menu items are not ordered)
+
+select * from Menu where MEN_ID <> ALL
+(select men_id from orders);
+
+-- Display Menu details for which ordered got placed 
+
+select * from Menu where MEN_ID = ANY(select Men_ID from Orders);
+
+-- Display customer details who placed orders 
+
+-- Display customer details who are not placed orders 
+
+select empno,ename,job from emp where job='CLERK';
+
+select empno,ename,job from emp where job='SALESMAN';
+
+UNION : This operator allows you to combine 2 query results, but for that select command needs to have similar and equal no.of attributes. UNION operator excludes the duplicate records. 
+
+select empno,ename,job from emp where job='CLERK'
+UNION
+select empno,ename,job from emp where job='SALESMAN';
+
+select empno,ename,job,sal from emp where sal between 500 and 3000
+UNION
+select empno,ename,job,sal from emp where sal between 2000 and 5000;
+
+UNION ALL : This operator is similar to UNION, but it includes duplicate records also in that.
+
+select empno,ename,job from emp where job='CLERK'
+UNION ALL
+select empno,ename,job from emp where job='SALESMAN';
+
+select empno,ename,job,sal from emp where sal between 500 and 3000
+UNION ALL
+select empno,ename,job,sal from emp where sal between 2000 and 5000;
+
+select empno,ename,job,sal from emp where job in ('CLERK','MANAGER')
+UNION ALL
+select empno,ename,job,sal from Emp where JOB IN('CLERK','SALESMAN');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
